@@ -34,7 +34,7 @@ def compare_faces():
 
     try:
         # Use DeepFace to analyze the similarity using Facenet512
-        result = DeepFace.verify(image1_array, image2_array, model_name='Facenet512')
+        result = DeepFace.verify(image1_array, image2_array, model_name='Facenet512', enforce_detection=False)
         
         # Calculate the similarity based on the distance
         similarity = 1 - result['distance']  # DeepFace returns a distance measure
@@ -43,8 +43,8 @@ def compare_faces():
         is_match = similarity >= THRESHOLD
 
         return jsonify({
-            'similarity': similarity,
-            'match': is_match
+            'cosine_similarity': similarity,
+            'result': is_match
         }), 200
 
     except Exception as e:

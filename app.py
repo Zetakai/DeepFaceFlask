@@ -7,8 +7,8 @@ from PIL import Image
 
 app = Flask(__name__)
 
-# Define the threshold for similarity (60%)
-THRESHOLD = 0.6
+# Define the threshold for similarity (70%)
+THRESHOLD = 0.7
 
 # Helper function to save numpy array images temporarily and return file paths
 def save_temp_image(image_array):
